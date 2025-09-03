@@ -71,13 +71,9 @@ class OtisSpeakerCharacter extends SparrowCharacter
 
     eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
 
-    pupil = FunkinSprite.createTextureAtlas(0, 0, "characters/abot/systemEyes", "shared",
-      {
-        applyStageMatrix: true
-      });
+    pupil = FunkinSprite.createTextureAtlas(0, 0, "characters/abot/systemEyes", "shared");
     pupil.x = this.x;
     pupil.y = this.y;
-    pupil.offset.x += 5;
     pupil.zIndex = this.zIndex - 5;
 
     pupil.anim.onFrameChange.add(function(name:String, frameNumber:Int, frameIndex:Int) {
@@ -192,13 +188,13 @@ class OtisSpeakerCharacter extends SparrowCharacter
     // refreshes just for the zIndex shit!
     if (!refershedLol)
     {
-      abot.x = this.x - 100;
-      abot.y = this.y + 216; // 764 - 740
+      abot.x = this.x - 135;
+      abot.y = this.y + 200;
       abot.zIndex = this.zIndex - 10;
 
       PlayState.instance.currentStage.add(abot);
 
-      abotViz.x = abot.x + 200;
+      abotViz.x = abot.x + 207;
       abotViz.y = abot.y + 84;
       abotViz.zIndex = abot.zIndex - 1;
       PlayState.instance.currentStage.add(abotViz);
@@ -208,8 +204,8 @@ class OtisSpeakerCharacter extends SparrowCharacter
       eyeWhites.zIndex = abot.zIndex - 10;
       PlayState.instance.currentStage.add(eyeWhites);
 
-      pupil.x = abot.x - 507;
-      pupil.y = abot.y - 492;
+      pupil.x = abot.x + 50;
+      pupil.y = abot.y + 240;
       pupil.zIndex = eyeWhites.zIndex + 5;
       PlayState.instance.currentStage.add(pupil);
 
@@ -218,23 +214,8 @@ class OtisSpeakerCharacter extends SparrowCharacter
       stereoBG.zIndex = abot.zIndex - 8;
       PlayState.instance.currentStage.add(stereoBG);
 
-      muzzleFlash.zIndex = this.zIndex - 1;
-      PlayState.instance.currentStage.add(muzzleFlash);
-
       PlayState.instance.currentStage.refresh();
       refershedLol = true;
-
-      abot.x -= 30;
-      abotViz.x -= 30;
-      eyeWhites.x -= 30;
-      pupil.x -= 30;
-      stereoBG.x -= 30;
-
-      abot.y -= 10;
-      abotViz.y -= 10;
-      eyeWhites.y -= 10;
-      pupil.y -= 10;
-      stereoBG.y -= 10;
     }
 
     // Each Pico animation is shifted from the array when it's time to play it.
