@@ -11,12 +11,18 @@ class PicoGoodResults extends FunkinSprite
     super(x, y);
     loadTextureAtlas("resultScreen/results-pico/resultsGOOD", "shared");
 
-    // TODO: Add back haptics.
     animation.onFrameChange.add((animation:String, frame:Int) -> {
       if (animation == "pico good placeholder" && this.visible)
       {
-        playAnimation();
+        overrideAnimation();
         return;
+      }
+    });
+
+    animation.onFrameLabel.add((label:String) -> {
+      if (label == "flash frame" && HapticUtil.hapticsAvailable)
+      {
+        HapticUtil.vibrate(0, 0.01, 1);
       }
     });
 
@@ -28,7 +34,14 @@ class PicoGoodResults extends FunkinSprite
     });
   }
 
-  public function playAnimation():Void
+  /**
+   * Overrides the default animation to play a different one:
+   *
+   * - 5% chance to play the fatass GF animation.
+   * - 20% chance to play the Cassandra animation.
+   * - Else, play the default animation.
+   */
+  function overrideAnimation():Void
   {
     if (FlxG.random.bool(5))
     {
