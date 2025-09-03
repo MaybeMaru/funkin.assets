@@ -205,7 +205,7 @@ class OtisSpeakerCharacter extends SparrowCharacter
       PlayState.instance.currentStage.add(eyeWhites);
 
       pupil.x = abot.x + 50;
-      pupil.y = abot.y + 240;
+      pupil.y = abot.y + 238;
       pupil.zIndex = eyeWhites.zIndex + 5;
       PlayState.instance.currentStage.add(pupil);
 
