@@ -146,7 +146,7 @@
         "renderType": "animateatlas",
         "assetPath": "shared:resultScreen/results-pico/resultsSHIT",
         "zIndex": 500,
-        "offsets": [-61, 38],
+        "offsets": [-50, 60],
         "loopFrame": 0
       }
     ]
